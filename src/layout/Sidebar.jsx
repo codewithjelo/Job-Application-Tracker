@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import { useState } from 'react';
 
-const Sidebar = () => {
+const Sidebar = ({ onCategoryClick }) => {  
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => setIsOpen(!isOpen);
 
-  const handleClick = (category) => {
+  const handleClick = (e, category) => {
+    e.preventDefault();
     onCategoryClick(category);
     setIsOpen(false);
   };
 
   return (
-    <div>
+    <>
       {/* Mobile Toggle Button */}
       <button
         onClick={toggleSidebar}
@@ -23,30 +24,46 @@ const Sidebar = () => {
       {/* Sidebar */}
       <div
         className={`fixed top-0 left-0 h-full w-64 bg-gray-800 text-white transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 md:translate-x-0 md:static md:w-64 z-40`}
+          isOpen ? 'translate-x-0' : '-translate-x-full'
+        } transition-transform duration-300 md:translate-x-0 md:w-64 z-40`}
       >
         <div className="p-4">
           <h2 className="text-xl font-bold mb-4">Job Application Tracker</h2>
           <nav>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="block p-2 hover:bg-gray-700 rounded">
+                <a
+                  href="#"
+                  onClick={(e) => handleClick(e, 'dashboard')}
+                  className="block p-2 hover:bg-gray-700 rounded"
+                >
                   Dashboard
                 </a>
               </li>
               <li>
-                <a href="#" className="block p-2 hover:bg-gray-700 rounded">
+                <a
+                  href="#"
+                  onClick={(e) => handleClick(e, 'all-applications')}
+                  className="block p-2 hover:bg-gray-700 rounded"
+                >
                   All Applications
                 </a>
               </li>
               <li>
-                <a href="#" className="block p-2 hover:bg-gray-700 rounded">
+                <a
+                  href="#"
+                  onClick={(e) => handleClick(e, 'add-new')}
+                  className="block p-2 hover:bg-gray-700 rounded"
+                >
                   Add New Application
                 </a>
               </li>
               <li>
-                <a href="#" className="block p-2 hover:bg-gray-700 rounded">
+                <a
+                  href="#"
+                  onClick={(e) => handleClick(e, 'settings')}
+                  className="block p-2 hover:bg-gray-700 rounded"
+                >
                   Settings
                 </a>
               </li>
@@ -62,7 +79,7 @@ const Sidebar = () => {
           className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
         ></div>
       )}
-    </div>
+    </>
   );
 };
 
