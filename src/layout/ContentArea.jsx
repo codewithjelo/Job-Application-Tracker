@@ -1,5 +1,5 @@
 import ApplicationForm from "../components/ApplicationForm";
-import ApplicationList from "../components/ApplicationList";
+import AllApplication from "../views/AllApplication";
 
 const ContentArea = ({ activeView }) => {
   const renderContent = () => {
@@ -13,7 +13,7 @@ const ContentArea = ({ activeView }) => {
           </div>
         );
       case "all-applications":
-        return <ApplicationList />;
+        return <AllApplication />;
       case "add-new":
         return <ApplicationForm />;
       default:
