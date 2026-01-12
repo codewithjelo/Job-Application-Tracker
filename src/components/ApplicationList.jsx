@@ -54,8 +54,9 @@ const ApplicationList = () => {
 
   return (
     <div>
-      <div className="overflow-x-auto">
-        <table className="min-w-full border border-gray-200 rounded-lg overflow-hidden">
+      {/*Table*/}
+      <div className="flex flex-row overflow-y-auto">
+        <table className="min-w-3/4 border border-gray-200 overflow-hidden">
           <thead className="bg-gray-50">
             <tr>
               <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
@@ -112,13 +113,22 @@ const ApplicationList = () => {
                   {app.location}
                 </td>
                 <td className="px-4 py-3 text-sm text-gray-700">{app.type}</td>
-                <td className="px-4 py-3 text-sm text-gray-500">
-                  {app.notes || "—"}
+                <td
+                  className={`px-4 py-3 text-sm ${
+                    !app.notes ? "text-gray-400" : "text-gray-900"
+                  }`}
+                >
+                  {app.notes || "No notes."}
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+
+        {/*Edit Panel*/}
+        <div className="ml-5 p-5 min-w-80 bg-black">
+          <p>Hello</p>
+        </div>
       </div>
     </div>
   );
