@@ -1,7 +1,8 @@
-import Header from "./components/Header";
+import Header from "./layout/Header";
 import ApplicationForm from "./components/ApplicationForm";
 import ApplicationList from "./components/ApplicationList";
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./layout/Sidebar";
+import ContentArea from "./layout/ContentArea";
 
 function App() {
   return (
@@ -9,8 +10,7 @@ function App() {
       <Sidebar />
       <div className="flex-1">
         <Header />
-        <ApplicationForm />
-        <ApplicationList />
+        <ContentArea />
       </div>
     </div>
   );
