@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="flex flex-row min-h-screen">
       <Sidebar onCategoryClick={handleCategoryClick} />
-      <div className="flex-1 md:ml-64">
+      <div className="flex-1 md:ml-64 min-w-screen">
         <Header />
         <ContentArea activeView={activeView} />
       </div>
