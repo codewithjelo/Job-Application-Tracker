@@ -35,7 +35,7 @@ const Sidebar = ({ onCategoryClick }) => {
                 <a
                   href="#"
                   onClick={(e) => handleClick(e, 'dashboard')}
-                  className="block p-2 hover:bg-gray-700 rounded"
+                  className="block p-2 "
                 >
                   Dashboard
                 </a>
@@ -44,7 +44,7 @@ const Sidebar = ({ onCategoryClick }) => {
                 <a
                   href="#"
                   onClick={(e) => handleClick(e, 'all-applications')}
-                  className="block p-2 hover:bg-gray-700 rounded"
+                  className="block p-2 "
                 >
                   All Applications
                 </a>
@@ -53,18 +53,9 @@ const Sidebar = ({ onCategoryClick }) => {
                 <a
                   href="#"
                   onClick={(e) => handleClick(e, 'add-new')}
-                  className="block p-2 hover:bg-gray-700 rounded"
+                  className="block p-2"
                 >
                   Add New Application
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  onClick={(e) => handleClick(e, 'settings')}
-                  className="block p-2 hover:bg-gray-700 rounded"
-                >
-                  Settings
                 </a>
               </li>
             </ul>
