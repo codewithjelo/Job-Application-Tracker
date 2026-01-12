@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false); // Toggle for mobile
@@ -6,7 +6,7 @@ const Sidebar = () => {
   const toggleSidebar = () => setIsOpen(!isOpen);
 
   return (
-    <>
+    <div>
       {/* Mobile Toggle Button */}
       <button
         onClick={toggleSidebar}
@@ -18,7 +18,7 @@ const Sidebar = () => {
       {/* Sidebar */}
       <div
         className={`fixed top-0 left-0 h-full w-64 bg-gray-800 text-white transform ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
+          isOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 md:translate-x-0 md:static md:w-64 z-40`}
       >
         <div className="p-4">
@@ -57,7 +57,7 @@ const Sidebar = () => {
           className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
         ></div>
       )}
-    </>
+    </div>
   );
 };
 
