@@ -15,7 +15,7 @@ const ContentArea = ({ activeView }) => {
       case "all-applications":
         return <AllApplication />;
       case "add-new":
-        return <ApplicationForm />;
+        return (<h1>Hello</h1>);
       default:
         return <ApplicationList />;
     }
