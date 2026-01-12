@@ -7,6 +7,7 @@ const ApplicationList = () => {
       status: "Applied",
       date: "2025-12-10",
       location: "Mountain View, CA",
+      work: "On-Site",
       type: "Full-time",
       notes: "Referred by alumni",
     },
@@ -17,6 +18,7 @@ const ApplicationList = () => {
       status: "Interviewing",
       date: "2025-12-15",
       location: "Redmond, WA",
+      work: "On-Site",
       type: "Full-time",
       notes: "Completed technical round",
     },
@@ -26,6 +28,7 @@ const ApplicationList = () => {
       position: "UI Engineer",
       status: "Rejected",
       date: "2025-11-28",
+      work: "Remote",
       location: "Remote",
       type: "Contract",
       notes: "Strong portfolio feedback",
@@ -37,6 +40,7 @@ const ApplicationList = () => {
       status: "Offer",
       date: "2025-12-20",
       location: "San Francisco, CA",
+      work: "On-Site",
       type: "Full-time",
       notes: "Offer expires in 2 weeks",
     },
@@ -46,6 +50,7 @@ const ApplicationList = () => {
       position: "React Engineer",
       status: "Applied",
       date: "2025-12-05",
+      work: "Remote",
       location: "Remote",
       type: "Full-time",
       notes: "",
@@ -75,6 +80,9 @@ const ApplicationList = () => {
                 Location
               </th>
               <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+                Work Arrangement
+              </th>
+              <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
                 Type
               </th>
               <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
@@ -97,12 +105,12 @@ const ApplicationList = () => {
                     className={`inline-flex rounded-full px-2 py-1 text-xs font-medium
                     ${
                       app.status === "Applied"
-                        ? "bg-blue-100 text-blue-700"
+                        ? "border-1 bg-blue-100 text-blue-700"
                         : app.status === "Interviewing"
-                        ? "bg-yellow-100 text-yellow-700"
+                        ? "border-1 bg-yellow-100 text-yellow-700"
                         : app.status === "Offer"
-                        ? "bg-green-100 text-green-700"
-                        : "bg-red-100 text-red-700"
+                        ? "border-1 bg-green-100 text-green-700"
+                        : "border-1 bg-red-100 text-red-700"
                     }`}
                   >
                     {app.status}
@@ -111,6 +119,9 @@ const ApplicationList = () => {
                 <td className="px-4 py-3 text-sm text-gray-700">{app.date}</td>
                 <td className="px-4 py-3 text-sm text-gray-700">
                   {app.location}
+                </td>
+                <td className="px-4 py-4 text-sm text-gray-700">
+                  {app.work}
                 </td>
                 <td className="px-4 py-3 text-sm text-gray-700">{app.type}</td>
                 <td
