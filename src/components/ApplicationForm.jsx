@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import useApplications from '../hooks/useApplication';
 
 const ApplicationForm = () => {
   const [formData, setFormData] = useState({ company: '', position: '', status: 'Applied' });
