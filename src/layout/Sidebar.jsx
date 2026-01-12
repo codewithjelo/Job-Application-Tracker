@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false); // Toggle for mobile
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => setIsOpen(!isOpen);
+
+  const handleClick = (category) => {
+    onCategoryClick(category);
+    setIsOpen(false);
+  };
 
   return (
     <div>
@@ -22,7 +27,7 @@ const Sidebar = () => {
         } transition-transform duration-300 md:translate-x-0 md:static md:w-64 z-40`}
       >
         <div className="p-4">
-          <h2 className="text-xl font-bold mb-4">Job Tracker</h2>
+          <h2 className="text-xl font-bold mb-4">Job Application Tracker</h2>
           <nav>
             <ul className="space-y-2">
               <li>
