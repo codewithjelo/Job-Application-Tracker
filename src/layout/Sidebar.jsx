@@ -28,7 +28,7 @@ const Sidebar = ({ onCategoryClick }) => {
         } transition-transform duration-300 md:translate-x-0 md:w-64 z-40`}
       >
         <div className="p-4">
-          <h2 className="text-xl font-bold mb-4">Job Application Tracker</h2>
+          <h2 className="text-4xl text-center text-gray-700 font-bold mb-4">J.A.T.</h2>
           <nav>
             <ul className="space-y-2">
               <li>
