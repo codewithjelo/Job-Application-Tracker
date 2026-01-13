@@ -63,9 +63,10 @@ const ApplicationList = () => {
   const [typeFilter, setTypeFilter] = useState("All");
   const [workFilter, setWorkFilter] = useState("All");
   const [selectedApp, setSelectedApp] = useState(null);
+  const [applications, setApplications] = useState(applicationList);
 
   const filteredApplications = useMemo(() => {
-    return applicationList.filter((app) => {
+    return applications.filter((app) => {
       const statusMatch = statusFilter === "All" || app.status === statusFilter;
 
       const typeMatch = typeFilter === "All" || app.type === typeFilter;
@@ -74,7 +75,7 @@ const ApplicationList = () => {
 
       return statusMatch && typeMatch && workMatch;
     });
-  }, [applicationList, statusFilter, typeFilter, workFilter]);
+  }, [applications, statusFilter, typeFilter, workFilter]);
 
   const handleChange = (field, value) => {
     setSelectedApp((prev) => ({
@@ -83,11 +84,15 @@ const ApplicationList = () => {
     }));
   };
 
+  const handleSave = () => {
+    setApplications((prev) =>
+      prev.map((app) => (app.id === selectedApp.id ? selectedApp : app))
+    );
+  };
+
   return (
     <div className="flex flex-row">
-
       <div className="flex flex-col overflow-y-auto min-w-3/4">
-
         {/*Filter Bar */}
         <div className="flex flex-wrap gap-4 pb-5">
           <select
@@ -161,7 +166,7 @@ const ApplicationList = () => {
                 key={app.id}
                 onClick={() => setSelectedApp(app)}
                 className={`cursor-pointer hover:bg-gray-50 transition-colors ${
-                  selectedApp?.id === app.id ? "bg-[var(--background-color)]" : ""
+                  selectedApp?.id === app.id ? "bg-[var(--secondary)]" : ""
                 }`}
               >
                 <td className="px-4 py-3 text-sm text-gray-900">
@@ -206,17 +211,21 @@ const ApplicationList = () => {
       </div>
 
       {/*Edit Panel*/}
-      <div className="ml-5 px-4 py-3 min-w-80 border border-gray-200">
+      <div className="ml-5 px-4 py-3 min-w-80 border border-gray-200 flex flex-col">
         <p className="text-left text-sm font-semibold text-gray-700">
           Modify Application
         </p>
 
         {!selectedApp ? (
-          <p className="text-sm text-gray-400">Select an application to edit</p>
+          <div className="flex flex-1 items-center justify-center">
+            <p className="text-sm text-gray-400 text-center">
+              Select an application to edit
+            </p>
+          </div>
         ) : (
           <form className="space-y-3">
             <div>
-              <label className="text-xs text-gray-600">Company</label>
+              <label className="text-sm text-gray-600">Company</label>
               <input
                 className="w-full rounded border px-2 py-1 text-sm"
                 value={selectedApp.company}
@@ -225,7 +234,7 @@ const ApplicationList = () => {
             </div>
 
             <div>
-              <label className="text-xs text-gray-600">Position</label>
+              <label className="text-sm text-gray-600">Position</label>
               <input
                 className="w-full rounded border px-2 py-1 text-sm"
                 value={selectedApp.position}
@@ -234,7 +243,7 @@ const ApplicationList = () => {
             </div>
 
             <div>
-              <label className="text-xs text-gray-600">Status</label>
+              <label className="text-sm text-gray-600">Status</label>
               <select
                 className="w-full rounded border px-2 py-1 text-sm"
                 value={selectedApp.status}
@@ -248,7 +257,7 @@ const ApplicationList = () => {
             </div>
 
             <div>
-              <label className="text-xs text-gray-600">Work Arrangement</label>
+              <label className="text-sm text-gray-600">Work Arrangement</label>
               <select
                 className="w-full rounded border px-2 py-1 text-sm"
                 value={selectedApp.work}
@@ -261,7 +270,7 @@ const ApplicationList = () => {
             </div>
 
             <div>
-              <label className="text-xs text-gray-600">Type</label>
+              <label className="text-sm text-gray-600">Type</label>
               <select
                 className="w-full rounded border px-2 py-1 text-sm"
                 value={selectedApp.type}
@@ -273,7 +282,7 @@ const ApplicationList = () => {
             </div>
 
             <div>
-              <label className="text-xs text-gray-600">Notes</label>
+              <label className="text-sm text-gray-600">Notes</label>
               <textarea
                 className="w-full rounded border px-2 py-1 text-sm"
                 rows={3}
@@ -284,6 +293,7 @@ const ApplicationList = () => {
 
             <button
               type="button"
+              onClick={handleSave}
               className="w-full rounded px-3 py-2 text-sm text-white"
             >
               Save Changes
@@ -291,7 +301,6 @@ const ApplicationList = () => {
           </form>
         )}
       </div>
-
     </div>
   );
 };
