@@ -1,4 +1,3 @@
-import ApplicationForm from "../components/ApplicationForm";
 import AllApplication from "../views/AllApplication";
 
 const ContentArea = ({ activeView }) => {
