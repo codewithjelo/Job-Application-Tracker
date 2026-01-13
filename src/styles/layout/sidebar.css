@@ -1,0 +1,7 @@
+.block {
+    color: var(--font-primary);
+    font-weight: 500;
+}
+.block:hover {
+    color: var(--font-secondary);
+}
