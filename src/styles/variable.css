@@ -12,6 +12,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --font-primary: #374151;
-  --font-secondary: #6cbfff;
+  --primary: #374151;
+  --secondary: #6cbfff;
+  --border: #E5E7EB;
+
 }
