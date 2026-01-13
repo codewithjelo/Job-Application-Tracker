@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import "../styles/layout/sidebar.css";
 
 const Sidebar = ({ onCategoryClick }) => {  
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +36,7 @@ const Sidebar = ({ onCategoryClick }) => {
                 <a
                   href="#"
                   onClick={(e) => handleClick(e, 'dashboard')}
-                  className="block p-2 "
+                  className="block p-2"
                 >
                   Dashboard
                 </a>
@@ -44,7 +45,7 @@ const Sidebar = ({ onCategoryClick }) => {
                 <a
                   href="#"
                   onClick={(e) => handleClick(e, 'all-applications')}
-                  className="block p-2 "
+                  className="block p-2"
                 >
                   All Applications
                 </a>
