@@ -1,16 +1,11 @@
+import Dashboard from "../views/Dashboard";
 import AllApplication from "../views/AllApplication";
 
 const ContentArea = ({ activeView }) => {
   const renderContent = () => {
     switch (activeView) {
       case "dashboard":
-        return (
-          <div className="p-4">
-            <h2 className="text-2xl font-bold mb-4">Dashboard</h2>
-            <p>Welcome! Here's an overview of your applications.</p>
-            {/* charts or stats */}
-          </div>
-        );
+        return <Dashboard />;
       case "all-applications":
         return <AllApplication />;
       case "add-new":
