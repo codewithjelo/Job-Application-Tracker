@@ -31,7 +31,7 @@ const ApplicationList = () => {
 
   return (
     <div className="flex flex-row">
-      <div className="flex flex-col overflow-y-auto min-w-3/4">
+      <div className="flex flex-col overflow-y-auto min-w-2/4 2xl:min-w-3/4">
         {/*Filter Bar */}
         <div className="flex flex-wrap gap-4 pb-5">
           <select
