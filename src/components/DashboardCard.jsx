@@ -22,7 +22,7 @@ const DashboardCard = () => {
   ];
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row justify-evenly">
       {cardList.map((app) => (
         <div className="flex flex-col p-4 border border-[var(--border)]">
           <p className="text-xl font-semibold text-[var(--primary)]">
