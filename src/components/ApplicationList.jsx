@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Swal from "sweetalert2";
 import ApplicationItem from "./ApplicationItem";
 import ApplicationEditForm from "./ApplicationEditForm";
 import { useApplications } from "../hooks/useApplications";
@@ -25,8 +26,20 @@ const ApplicationList = () => {
     }));
   };
 
-  const handleSave = () => {
-    updateApplication(selectedApp);
+  const handleSave = async () => {
+    const result = await Swal.fire({
+      title: "Save Changes?",
+      text: "Do you want to update this application?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Yes, save",
+      cancelButtonText: "Cancel",
+    });
+
+    if (result.isConfirmed) {
+      await updateApplication(selectedApp);
+      Swal.fire("Saved!", "Application updated successfully.", "success");
+    }
   };
 
   return (
