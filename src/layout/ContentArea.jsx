@@ -1,5 +1,6 @@
 import Dashboard from "../views/Dashboard";
 import AllApplication from "../views/AllApplication";
+import AddNewApplication from "../views/AddNewApplication";
 
 const ContentArea = ({ activeView }) => {
   const renderContent = () => {
@@ -9,7 +10,7 @@ const ContentArea = ({ activeView }) => {
       case "all-applications":
         return <AllApplication />;
       case "add-new":
-        return (<h1>Hello</h1>);
+        return <AddNewApplication />;
       default:
         return <ApplicationList />;
     }
