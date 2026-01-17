@@ -38,6 +38,31 @@ const ApplicationList = () => {
 
     if (result.isConfirmed) {
       const updatedApp = { ...selectedApp };
+      
+      const originalApp = applications.find((app) => app.id === selectedApp.id);
+
+      if (!originalApp) {
+        console.error("Original app not found");
+        return;
+      }
+
+      const statusChanged = originalApp.status !== updatedApp.status;
+
+      if (!updatedApp.activities) {
+        updatedApp.activities = [];
+      }
+
+      if (statusChanged) {
+        const newActivity = {
+          id: Date.now(),
+          type: "status_change",
+          from: originalApp.status,
+          to: updatedApp.status,
+          timestamp: new Date().toISOString(),
+          note: `Status changed from ${originalApp.status} to ${updatedApp.status}`,
+        };
+        updatedApp.activities = [...updatedApp.activities, newActivity];
+      }
 
       if (updatedApp.status === "Rejected" && !updatedApp.rejectedDate) {
         updatedApp.rejectedDate = new Date().toISOString();
@@ -48,7 +73,10 @@ const ApplicationList = () => {
       }
 
       await updateApplication(updatedApp);
+
       Swal.fire("Saved!", "Application updated successfully.", "success");
+
+      setOriginalStatus(null);
     }
   };
 
