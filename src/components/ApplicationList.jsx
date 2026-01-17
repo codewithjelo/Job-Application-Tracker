@@ -54,7 +54,7 @@ const ApplicationList = () => {
 
       if (statusChanged) {
         const newActivity = {
-          id: Date.now(),
+          id: originalApp.activities.length + 1,
           type: "status_change",
           from: originalApp.status,
           to: updatedApp.status,
