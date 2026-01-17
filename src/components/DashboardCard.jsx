@@ -1,34 +1,40 @@
 import { useApplications } from "../hooks/useApplications";
+import { Briefcase, Send, Users, XCircle } from "lucide-react";
 
 const DashboardCard = () => {
   const { applications } = useApplications();
   const cardList = [
     {
-      title: "Total Job Applications",
+      title: "Job Applications",
       count: applications.length,
+      icon: Briefcase,
     },
     {
-      title: "Total Applied",
+      title: "Applied",
       count: applications.filter((app) => app.status === "Applied").length,
+      icon: Send,
     },
     {
-      title: "Total Interviewing",
+      title: "Interviewing",
       count: applications.filter((app) => app.status === "Interviewing").length,
+      icon: Users,
     },
     {
-      title: "Total Rejected",
+      title: "Rejected",
       count: applications.filter((app) => app.status === "Rejected").length,
+      icon: XCircle,
     },
   ];
 
   return (
     <div className="flex flex-row justify-evenly">
       {cardList.map((app) => (
-        <div className="flex flex-col p-4 border border-[var(--border)]">
-          <p className="text-xl font-semibold text-[var(--primary)]">
+        <div className="flex flex-col rounded-md border border-[var(--border)] min-w-64">
+          <p className="text-md py-3 bg-[var(--secondary)] text-center rounded-t-md font-semibold border-b border-[var(--border)] text-white flex items-center justify-center gap-2">
+            <app.icon className="w-5 h-5 text-white" />
             {app.title}
           </p>
-          <span className="text-xl font-semibold text-[var(--secondary)]">
+          <span className="text-xl py-5 text-center font-semibold text-[var(--secondary)]">
             {app.count}
           </span>
         </div>
