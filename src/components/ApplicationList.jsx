@@ -37,7 +37,17 @@ const ApplicationList = () => {
     });
 
     if (result.isConfirmed) {
-      await updateApplication(selectedApp);
+      const updatedApp = { ...selectedApp };
+
+      if (updatedApp.status === "Rejected" && !updatedApp.rejectedDate) {
+        updatedApp.rejectedDate = new Date().toISOString();
+      }
+
+      if (updatedApp.status !== "Rejected") {
+        updatedApp.rejectedDate = null;
+      }
+
+      await updateApplication(updatedApp);
       Swal.fire("Saved!", "Application updated successfully.", "success");
     }
   };
