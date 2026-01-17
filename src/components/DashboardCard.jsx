@@ -27,7 +27,7 @@ const DashboardCard = () => {
   ];
 
   return (
-    <div className="flex flex-row justify-evenly">
+    <div className="flex flex-row justify-between">
       {cardList.map((app) => (
         <div className="flex flex-col rounded-md border border-[var(--border)] min-w-64">
           <p className="text-md py-3 bg-[var(--secondary)] text-center rounded-t-md font-semibold border-b border-[var(--border)] text-white flex items-center justify-center gap-2">
@@ -39,7 +39,6 @@ const DashboardCard = () => {
           </span>
         </div>
       ))}
-      ;
     </div>
   );
 };
