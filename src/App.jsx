@@ -16,7 +16,7 @@ return (
 
     <div className="flex flex-col flex-1 md:ml-64">
       <Header />
-      <div className="p-5 flex-1 overflow-auto">
+      <div className="p-5 flex-1">
         <ContentArea activeView={activeView} />
       </div>
     </div>
