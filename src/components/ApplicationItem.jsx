@@ -6,13 +6,9 @@ const ApplicationItem = ({ app, isSelected, onSelect }) => {
         isSelected ? "bg-[var(--secondary)]" : ""
       }`}
     >
-      <td className="px-4 py-3 text-sm text-gray-900">
-        {app.company}
-      </td>
+      <td className="px-4 py-3 text-sm text-gray-900">{app.company}</td>
 
-      <td className="px-4 py-3 text-sm text-gray-900">
-        {app.position}
-      </td>
+      <td className="px-4 py-3 text-sm text-gray-900">{app.position}</td>
 
       <td className="px-4 py-3 text-sm">
         <span
@@ -21,10 +17,10 @@ const ApplicationItem = ({ app, isSelected, onSelect }) => {
               app.status === "Applied"
                 ? "bg-blue-100 text-blue-700"
                 : app.status === "Interviewing"
-                ? "bg-yellow-100 text-yellow-700"
-                : app.status === "Offer"
-                ? "bg-green-100 text-green-700"
-                : "bg-red-100 text-red-700"
+                  ? "bg-yellow-100 text-yellow-700"
+                  : app.status === "Offer"
+                    ? "bg-green-100 text-green-700"
+                    : "bg-red-100 text-red-700"
             }`}
         >
           {app.status}
@@ -32,20 +28,20 @@ const ApplicationItem = ({ app, isSelected, onSelect }) => {
       </td>
 
       <td className="px-4 py-3 text-sm text-gray-700">
-        {app.date}
+        {app.status === "Applied"
+          ? app.appliedDate.slice(0, 10)
+          : app.status === "Interviewing" || app.status === "Offer"
+          ? app.interviewDate.slice(0, 10)
+          : app.status === "Rejected"
+          ? app.rejectedDate.slice(0, 10)
+          : " No Date."}
       </td>
 
-      <td className="px-4 py-3 text-sm text-gray-700">
-        {app.location}
-      </td>
+      <td className="px-4 py-3 text-sm text-gray-700">{app.location}</td>
 
-      <td className="px-4 py-3 text-sm text-gray-700">
-        {app.work}
-      </td>
+      <td className="px-4 py-3 text-sm text-gray-700">{app.work}</td>
 
-      <td className="px-4 py-3 text-sm text-gray-700">
-        {app.type}
-      </td>
+      <td className="px-4 py-3 text-sm text-gray-700">{app.type}</td>
 
       <td
         className={`px-4 py-3 text-sm ${
