@@ -59,6 +59,15 @@ const Sidebar = ({ onCategoryClick }) => {
                   Add New Application
                 </a>
               </li>
+              <li>
+                <a
+                  href="#"
+                  onClick={(e) => handleClick(e, 'activity-log')}
+                  className="block p-2"
+                >
+                  Job Application Log
+                </a>
+              </li>
             </ul>
           </nav>
         </div>
