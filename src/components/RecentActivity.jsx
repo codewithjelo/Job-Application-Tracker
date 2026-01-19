@@ -68,7 +68,7 @@ const RecentActivity = ({ onCategoryClick }) => {
         <div className="flex-1">
           <button
             className="text-md mb-4 text-[var(--white)] font-semibold flex items-center justify-center gap-2 w-full"
-            onClick={(e) => handleClick(e, "all-applications")}
+            onClick={(e) => handleClick(e, "activity-log")}
           >
             <List className="w-5 h-5" />
             View All
