@@ -6,18 +6,23 @@ export const useApplicationFilters = (applications) => {
   const [workFilter, setWorkFilter] = useState("All");
 
   const filteredApplications = useMemo(() => {
-    return applications.filter((app) => {
-      const statusMatch =
-        statusFilter === "All" || app.status === statusFilter;
+    return applications
+      .filter((app) => {
+        const statusMatch =
+          statusFilter === "All" || app.status === statusFilter;
 
-      const typeMatch =
-        typeFilter === "All" || app.type === typeFilter;
+        const typeMatch = typeFilter === "All" || app.type === typeFilter;
 
-      const workMatch =
-        workFilter === "All" || app.work === workFilter;
+        const workMatch = workFilter === "All" || app.work === workFilter;
 
-      return statusMatch && typeMatch && workMatch;
-    });
+        return statusMatch && typeMatch && workMatch;
+      })
+      .sort((a, b) => {
+        const dateA = a.appliedDate ? new Date(a.appliedDate) : new Date(0);
+        const dateB = b.appliedDate ? new Date(b.appliedDate) : new Date(0);
+
+        return dateB - dateA;
+      });
   }, [applications, statusFilter, typeFilter, workFilter]);
 
   return {
