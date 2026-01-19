@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Clock } from "lucide-react";
+import { Clock, Plus, List } from "lucide-react";
 import { useApplications } from "../hooks/useApplications";
 
 const RecentActivity = () => {
@@ -15,7 +15,7 @@ const RecentActivity = () => {
         position: app.position,
         status: app.status,
         appId: app.id,
-      }))
+      })),
     );
 
     const sorted = allActivities
@@ -69,12 +69,12 @@ const RecentActivity = () => {
   };
 
   return (
-    <div className="rounded-md p-3 border border-[var(--border)]">
+    <div className="rounded-md p-3 border border-[var(--border)] h-94">
       <p className="text-md mb-4 text-[var(--primary)] font-semibold flex items-center gap-2">
         <Clock className="w-5 h-5" />
         Recent Activity
       </p>
-      <div className="space-y-3">
+      <div className="space-y-4 overflow-y-auto h-7/10 mb-4">
         {recentActivities.length === 0 ? (
           <p className="text-sm text-gray-500 text-center py-4">
             No recent activity
@@ -83,7 +83,7 @@ const RecentActivity = () => {
           recentActivities.map((activity) => (
             <div
               key={`${activity.appId}-${activity.id}`}
-              className="activity flex items-start justify-between rounded-md bg-[var(--secondary)] p-3"
+              className="activity flex items-start justify-between rounded-md border border-[var(--secondary)] p-3"
             >
               <div className="flex-1">
                 <p className="text-sm font-semibold text-[var(--primary)]">
@@ -106,6 +106,20 @@ const RecentActivity = () => {
             </div>
           ))
         )}
+      </div>
+      <div className="flex flex-row gap-5">
+        <div className="flex-1">
+          <button className="text-md mb-4 text-[var(--white)] font-semibold flex items- justify-center gap-2 w-full">
+            <Plus className="w-5 h-5" />
+            Add Application
+          </button>
+        </div>
+        <div className="flex-1">
+          <button className="text-md mb-4 text-[var(--white)] font-semibold flex items-center justify-center gap-2 w-full">
+            <List className="w-5 h-5" />
+            View All
+          </button>
+        </div>
       </div>
     </div>
   );
