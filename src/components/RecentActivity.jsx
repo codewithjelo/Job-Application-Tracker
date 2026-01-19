@@ -76,14 +76,14 @@ const RecentActivity = () => {
       </p>
       <div className="space-y-4 overflow-y-auto h-7/10 mb-4">
         {recentActivities.length === 0 ? (
-          <p className="text-sm text-gray-500 text-center py-4">
+          <p className="text-sm text-gray-400 text-center py-4">
             No recent activity
           </p>
         ) : (
           recentActivities.map((activity) => (
             <div
               key={`${activity.appId}-${activity.id}`}
-              className="activity flex items-start justify-between rounded-md border border-[var(--secondary)] p-3"
+              className="activity flex items-start justify-between rounded-md border border-[var(--border)] p-3"
             >
               <div className="flex-1">
                 <p className="text-sm font-semibold text-[var(--primary)]">
