@@ -61,11 +61,11 @@ const ApplicationTrend = () => {
         <LineChart data={trendData}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="week" />
-          <YAxis />
+          <YAxis allowDecimals={false} />
           <Tooltip />
           <Line
             type="monotone"
-            dataKey="Application"
+            dataKey="applications"
             stroke="#3bf69f"
             strokeWidth={2}
           />
