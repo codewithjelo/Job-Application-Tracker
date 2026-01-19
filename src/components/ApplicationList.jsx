@@ -38,7 +38,7 @@ const ApplicationList = () => {
 
     if (result.isConfirmed) {
       const updatedApp = { ...selectedApp };
-      
+
       const originalApp = applications.find((app) => app.id === selectedApp.id);
 
       if (!originalApp) {
@@ -121,30 +121,30 @@ const ApplicationList = () => {
 
         {/*Table*/}
         <table className="overflow-hidden">
-          <thead className="bg-gray-50">
+          <thead className="bg-[var(--secondary)]">
             <tr>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+              <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
                 Company
               </th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+              <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
                 Position
               </th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+              <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
                 Status
               </th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+              <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
                 Date
               </th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+              <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
                 Location
               </th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+              <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
                 Work Arrangement
               </th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+              <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
                 Type
               </th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+              <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
                 Notes
               </th>
             </tr>
