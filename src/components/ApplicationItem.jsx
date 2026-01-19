@@ -6,9 +6,9 @@ const ApplicationItem = ({ app, isSelected, onSelect }) => {
         isSelected ? "bg-[var(--secondary)]" : ""
       }`}
     >
-      <td className="px-4 py-3 text-sm text-gray-900">{app.company}</td>
+      <td className="px-4 py-3 text-sm text-[var(--primary)]">{app.company}</td>
 
-      <td className="px-4 py-3 text-sm text-gray-900">{app.position}</td>
+      <td className="px-4 py-3 text-sm text-[var(--primary)]">{app.position}</td>
 
       <td className="px-4 py-3 text-sm">
         <span
@@ -27,7 +27,7 @@ const ApplicationItem = ({ app, isSelected, onSelect }) => {
         </span>
       </td>
 
-      <td className="px-4 py-3 text-sm text-gray-700">
+      <td className="px-4 py-3 text-sm text-[var(--primary)]">
         {app.status === "Applied"
           ? app.appliedDate.slice(0, 10)
           : app.status === "Interviewing" || app.status === "Offer"
@@ -37,15 +37,15 @@ const ApplicationItem = ({ app, isSelected, onSelect }) => {
           : " No Date."}
       </td>
 
-      <td className="px-4 py-3 text-sm text-gray-700">{app.location}</td>
+      <td className="px-4 py-3 text-sm text-[var(--primary)]">{app.location}</td>
 
-      <td className="px-4 py-3 text-sm text-gray-700">{app.work}</td>
+      <td className="px-4 py-3 text-sm text-[var(--primary)]">{app.work}</td>
 
-      <td className="px-4 py-3 text-sm text-gray-700">{app.type}</td>
+      <td className="px-4 py-3 text-sm text-[var(--primary)]">{app.type}</td>
 
       <td
         className={`px-4 py-3 text-sm ${
-          app.notes ? "text-gray-700" : "text-gray-400"
+          app.notes ? "text-[var(--primary)]" : "text-gray-400"
         }`}
       >
         {app.notes || "No notes."}
