@@ -13,7 +13,8 @@
   -moz-osx-font-smoothing: grayscale;
 
   --primary: #374151;
-  --secondary: #6cbfff;
+  --secondary: #23a0ff;
+  --white: #f0f0f0;
   --border: #E5E7EB;
 
 }
