@@ -24,13 +24,13 @@ const ApplicationActivity = () => {
           recentActivities.map((activity) => (
             <div
               key={`${activity.appId}-${activity.id}`}
-              className="activity flex items-start justify-between rounded-md bg-[var(--secondary)] p-3"
+              className="activity flex items-start justify-between rounded-md border border-[var(--secondary)] bg-[var(--blue-fade)] p-3"
             >
               <div className="flex-1">
-                <p className="text-sm font-semibold text-[var(--white)]">
+                <p className="text-sm font-semibold text-[var(--primary)]">
                   {getActivityMessage(activity)}
                 </p>
-                <p className="text-xs text-[var(--white)] opacity-70">
+                <p className="text-xs text-[var(--primary)] opacity-70">
                   {activity.position}
                 </p>
               </div>
@@ -40,7 +40,7 @@ const ApplicationActivity = () => {
                 >
                   {activity.status}
                 </span>
-                <p className="text-xs text-[var(--white)] opacity-70 mt-1" title={activity.timestamp.slice(0, 10)}>
+                <p className="text-xs text-[var(--primary)] opacity-70 mt-1" title={activity.timestamp.slice(0, 10)}>
                   {getTimeElapsed(activity.timestamp)}
                 </p>
               </div>
