@@ -1,6 +1,7 @@
 import DashboardCard from "../components/DashboardCard";
 import ApplicationTrend from "../components/ApplicationTrend";
 import RecentActivity from "../components/RecentActivity";
+import RecentApplicationList from "../components/RecentApplicationList";
 
 const Dashboard = ({ onCategoryClick }) => {
   return (
@@ -14,6 +15,7 @@ const Dashboard = ({ onCategoryClick }) => {
           <RecentActivity onCategoryClick={onCategoryClick} />
         </div>
       </div>
+      <RecentApplicationList />
     </div>
   );
 };
