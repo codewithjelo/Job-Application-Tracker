@@ -27,10 +27,10 @@ const DashboardCard = () => {
   ];
 
   return (
-    <div className="flex flex-row justify-between">
+    <div className="flex flex-row justify-between xl:grid xl:grid-cols-2 xl:gap-5">
       {cardList.map((app) => (
         <div className="flex flex-col rounded-md border border-[var(--border)] min-w-64">
-          <p className="text-md py-3 bg-[var(--secondary)] text-center rounded-t-md font-semibold border-b border-[var(--border)] text-[var(--primary)] flex items-center justify-center gap-2">
+          <p className="text-md py-3 bg-[var(--secondary)] text-center rounded-t-md font-semibold border-b border-[var(--border)] text-[var(--white)] flex items-center justify-center gap-2">
             <app.icon className="w-5 h-5" />
             {app.title}
           </p>
