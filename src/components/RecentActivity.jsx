@@ -1,72 +1,15 @@
-import { useEffect, useState } from "react";
 import { Clock, Plus, List } from "lucide-react";
 import { useApplications } from "../hooks/useApplications";
+import { useApplicationActivity } from "../hooks/useApplicationActivity";
 
 const RecentActivity = ({ onCategoryClick }) => {
   const { applications } = useApplications();
-  const [recentActivities, setRecentActivities] = useState([]);
-
-  useEffect(() => {
-    // Flatten all activities from all applications
-    const allActivities = applications.flatMap((app) =>
-      (app.activities || []).map((activity) => ({
-        ...activity,
-        company: app.company,
-        position: app.position,
-        status: app.status,
-        appId: app.id,
-      })),
-    );
-
-    const sorted = allActivities
-      .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
-      .slice(0, 5);
-
-    setRecentActivities(sorted);
-  }, [applications]);
-
-  const getTimeElapsed = (timestamp) => {
-    const now = new Date();
-    const past = new Date(timestamp);
-    const diffMs = now - past;
-
-    const minutes = Math.floor(diffMs / 60000);
-    const hours = Math.floor(diffMs / 3600000);
-    const days = Math.floor(diffMs / 86400000);
-    const weeks = Math.floor(days / 7);
-
-    if (minutes < 1) return "Just now";
-    if (minutes < 60) return `${minutes}m ago`;
-    if (hours < 24) return `${hours}h ago`;
-    if (days < 7) return `${days}d ago`;
-    return `${weeks}w ago`;
-  };
-
-  const getActivityMessage = (activity) => {
-    switch (activity.type) {
-      case "created":
-        return `Applied to ${activity.company}`;
-      case "status_change":
-        return `${activity.company} - ${activity.from} → ${activity.to}`;
-      default:
-        return activity.note;
-    }
-  };
-
-  const getStatusColor = (status) => {
-    switch (status) {
-      case "Applied":
-        return "bg-purple-100 text-purple-700";
-      case "Interviewing":
-        return "bg-green-100 text-green-700";
-      case "Offer":
-        return "bg-blue-100 text-blue-700";
-      case "Rejected":
-        return "bg-red-100 text-red-700";
-      default:
-        return "bg-gray-100 text-gray-700";
-    }
-  };
+  const {
+    recentActivities,
+    getTimeElapsed,
+    getActivityMessage,
+    getStatusColor,
+  } = useApplicationActivity(applications);
 
   const handleClick = (e, category) => {
     e.preventDefault();
@@ -115,7 +58,7 @@ const RecentActivity = ({ onCategoryClick }) => {
       <div className="flex flex-row gap-5">
         <div className="flex-1">
           <button
-            className="text-md mb-4 text-[var(--white)] font-semibold flex items- justify-center gap-2 w-full"
+            className="text-md mb-4 text-[var(--white)] font-semibold flex items-center justify-center gap-2 w-full"
             onClick={(e) => handleClick(e, "add-new")}
           >
             <Plus className="w-5 h-5" />
@@ -123,7 +66,10 @@ const RecentActivity = ({ onCategoryClick }) => {
           </button>
         </div>
         <div className="flex-1">
-          <button className="text-md mb-4 text-[var(--white)] font-semibold flex items-center justify-center gap-2 w-full">
+          <button
+            className="text-md mb-4 text-[var(--white)] font-semibold flex items-center justify-center gap-2 w-full"
+            onClick={(e) => handleClick(e, "all-applications")}
+          >
             <List className="w-5 h-5" />
             View All
           </button>
