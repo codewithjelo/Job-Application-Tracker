@@ -2,7 +2,7 @@ import DashboardCard from "../components/DashboardCard";
 import ApplicationTrend from "../components/ApplicationTrend";
 import RecentActivity from "../components/RecentActivity";
 
-const Dashboard = () => {
+const Dashboard = ({ onCategoryClick }) => {
   return (
     <div className="flex flex-col gap-5">
       <DashboardCard />
@@ -11,7 +11,7 @@ const Dashboard = () => {
           <ApplicationTrend />
         </div>
         <div className="flex-1">
-          <RecentActivity />
+          <RecentActivity onCategoryClick={onCategoryClick} />
         </div>
       </div>
     </div>

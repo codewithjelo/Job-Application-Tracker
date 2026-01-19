@@ -2,17 +2,17 @@ import Dashboard from "../views/Dashboard";
 import AllApplication from "../views/AllApplication";
 import AddNewApplication from "../views/AddNewApplication";
 
-const ContentArea = ({ activeView }) => {
+const ContentArea = ({ activeView, onCategoryClick }) => {
   const renderContent = () => {
     switch (activeView) {
       case "dashboard":
-        return <Dashboard />;
+        return <Dashboard onCategoryClick={onCategoryClick} />;
       case "all-applications":
         return <AllApplication />;
       case "add-new":
         return <AddNewApplication />;
       default:
-        return <ApplicationList />;
+        return <Dashboard onCategoryClick={onCategoryClick} />;
     }
   };
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Clock, Plus, List } from "lucide-react";
 import { useApplications } from "../hooks/useApplications";
 
-const RecentActivity = () => {
+const RecentActivity = ({ onCategoryClick }) => {
   const { applications } = useApplications();
   const [recentActivities, setRecentActivities] = useState([]);
 
@@ -68,6 +68,11 @@ const RecentActivity = () => {
     }
   };
 
+  const handleClick = (e, category) => {
+    e.preventDefault();
+    onCategoryClick(category);
+  };
+
   return (
     <div className="rounded-md p-3 border border-[var(--border)] h-94">
       <p className="text-md mb-4 text-[var(--primary)] font-semibold flex items-center gap-2">
@@ -109,7 +114,10 @@ const RecentActivity = () => {
       </div>
       <div className="flex flex-row gap-5">
         <div className="flex-1">
-          <button className="text-md mb-4 text-[var(--white)] font-semibold flex items- justify-center gap-2 w-full">
+          <button
+            className="text-md mb-4 text-[var(--white)] font-semibold flex items- justify-center gap-2 w-full"
+            onClick={(e) => handleClick(e, "add-new")}
+          >
             <Plus className="w-5 h-5" />
             Add Application
           </button>
