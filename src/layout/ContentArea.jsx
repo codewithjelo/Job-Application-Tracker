@@ -1,6 +1,7 @@
 import Dashboard from "../views/Dashboard";
 import AllApplication from "../views/AllApplication";
 import AddNewApplication from "../views/AddNewApplication";
+import ActivityLog from "../views/ActivityLog";
 
 const ContentArea = ({ activeView, onCategoryClick }) => {
   const renderContent = () => {
@@ -11,6 +12,8 @@ const ContentArea = ({ activeView, onCategoryClick }) => {
         return <AllApplication />;
       case "add-new":
         return <AddNewApplication />;
+      case "activity-log":
+        return <ActivityLog />;
       default:
         return <Dashboard onCategoryClick={onCategoryClick} />;
     }
