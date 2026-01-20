@@ -16,10 +16,6 @@ const ApplicationTrend = () => {
   const { trendData, timeRange, setTimeRange } =
     useApplicationTrends(applications);
 
-  // Add this to debug
-  console.log("Trend Data:", trendData);
-  console.log("Applications:", applications);
-
   return (
     <div className="rounded-md p-3 border border-[var(--border)]">
       <div className="flex items-center justify-between mb-4">
