@@ -20,8 +20,12 @@ export const useApplicationFilters = (applications) => {
       .sort((a, b) => {
         const dateA = a.appliedDate ? new Date(a.appliedDate) : new Date(0);
         const dateB = b.appliedDate ? new Date(b.appliedDate) : new Date(0);
+        
+        if (dateB - dateA !== 0) {
+          return dateB - dateA;
+        }
 
-        return dateB - dateA;
+        return b.id - a.id;
       });
   }, [applications, statusFilter, typeFilter, workFilter]);
 
