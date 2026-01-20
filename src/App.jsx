@@ -11,7 +11,7 @@ function App() {
   };
 
   return (
-    <div className="flex min-h-screen min-w-screen overflow-hidden">
+    <div className="flex min-h-screen overflow-hidden">
       <Sidebar onCategoryClick={handleCategoryClick} />
 
       <div className="flex flex-col flex-1 md:ml-64">
