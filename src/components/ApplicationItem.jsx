@@ -3,14 +3,14 @@ const ApplicationItem = ({ app, isSelected, onSelect }) => {
     <tr
       onClick={() => onSelect(app)}
       className={`cursor-pointer hover:bg-gray-50 transition-colors ${
-        isSelected ? "bg-[var(--secondary)]" : ""
+        isSelected ? "bg-[var(--blue-fade)]" : ""
       }`}
     >
-      <td className="px-4 py-3 text-sm text-[var(--primary)]">{app.company}</td>
+      <td className="px-4 py-3 text-sm text-[var(--primary)] truncate max-w-0">{app.company}</td>
 
-      <td className="px-4 py-3 text-sm text-[var(--primary)]">{app.position}</td>
+      <td className="px-4 py-3 text-sm text-[var(--primary)] truncate max-w-0">{app.position}</td>
 
-      <td className="px-4 py-3 text-sm">
+      <td className="px-4 py-3 text-sm truncate max-w-0">
         <span
           className={`inline-flex rounded-full px-2 py-1 text-xs font-medium
             ${
@@ -27,7 +27,7 @@ const ApplicationItem = ({ app, isSelected, onSelect }) => {
         </span>
       </td>
 
-      <td className="px-4 py-3 text-sm text-[var(--primary)]">
+      <td className="px-4 py-3 text-sm text-[var(--primary)] truncate max-w-0">
         {app.status === "Applied"
           ? app.appliedDate.slice(0, 10)
           : app.status === "Interviewing" || app.status === "Offer"
@@ -37,17 +37,17 @@ const ApplicationItem = ({ app, isSelected, onSelect }) => {
           : " No Date."}
       </td>
 
-      <td className="px-4 py-3 text-sm text-[var(--primary)]">{app.location}</td>
+      <td className="px-4 py-3 text-sm text-[var(--primary)] truncate max-w-0" title={app.location}>{app.location}</td>
 
-      <td className="px-4 py-3 text-sm text-[var(--primary)]">{app.work}</td>
+      <td className="px-4 py-3 text-sm text-[var(--primary)] truncate max-w-0">{app.work}</td>
 
-      <td className="px-4 py-3 text-sm text-[var(--primary)]">{app.type}</td>
+      <td className="px-4 py-3 text-sm text-[var(--primary)] truncate max-w-0">{app.type}</td>
 
       <td
         className={`px-4 py-3 text-sm ${
-          app.notes ? "text-[var(--primary)]" : "text-gray-400"
+          app.notes ? "text-[var(--primary)] truncate max-w-0" : "text-gray-400"
         }`}
-      >
+      title={app.notes}>
         {app.notes || "No notes."}
       </td>
     </tr>
