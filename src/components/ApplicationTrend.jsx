@@ -17,7 +17,7 @@ const ApplicationTrend = () => {
     useApplicationTrends(applications);
 
   return (
-    <div className="rounded-md p-3 border border-[var(--border)]">
+    <div className="rounded-md p-3 border border-[var(--border)] h-full">
       <div className="flex items-center justify-between mb-4">
         <p className="text-md text-[var(--primary)] font-semibold flex items-center gap-2">
           <TrendingUp className="w-5 h-5" />
