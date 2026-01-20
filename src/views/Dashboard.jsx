@@ -15,7 +15,7 @@ const Dashboard = ({ onCategoryClick }) => {
           <RecentActivity onCategoryClick={onCategoryClick} />
         </div>
       </div>
-      <RecentApplicationList />
+      <RecentApplicationList onCategoryClick={onCategoryClick} />
     </div>
   );
 };
