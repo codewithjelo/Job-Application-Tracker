@@ -13,9 +13,9 @@ const RecentApplicationList = () => {
         <Table className="w-5 h-5" />
         Applications Over Time
       </p>
-      <div className="flex flex-col overflow-y-auto min-w-2/4 2xl:min-w-3/4">
+      <div className="flex flex-col overflow-y-auto">
         {/*Table*/}
-        <table className="overflow-hidden">
+        <table className="w-full table-fixed border-collapse">
           <thead className="bg-[var(--secondary)]">
             <tr>
               <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">

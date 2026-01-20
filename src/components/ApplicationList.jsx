@@ -120,7 +120,7 @@ const ApplicationList = () => {
         </div>
 
         {/*Table*/}
-        <table className="overflow-hidden">
+        <table className="w-full table-fixed border-collapse">
           <thead className="bg-[var(--secondary)]">
             <tr>
               <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
