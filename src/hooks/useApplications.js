@@ -51,7 +51,7 @@ export const useApplications = () => {
     }
   };
 
-  // Delete an application via API
+  // Delete an application via API (not used)
   const deleteApplication = async (id) => {
     try {
       await fetch(`${API_URL}/${id}`, { method: "DELETE" });
