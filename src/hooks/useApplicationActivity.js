@@ -20,8 +20,7 @@ export const useApplicationActivity = (applications) => {
     );
 
     const sorted = allActivities
-      .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
-      .slice(0, 5);
+      .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 
     setRecentActivities(sorted);
   }, [applications]);
