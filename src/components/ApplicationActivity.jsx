@@ -50,8 +50,8 @@ const ApplicationActivity = () => {
         ) : (
           Object.entries(groupedActivities).map(([date, activities]) => (
             <div key={date} className="space-y-2">
-              <div className="bg-[var(--white)]">
-                <p className="text-sm font-semibold text-[var(--primary)] opacity-60 sticky top-0 py-1">
+              <div className="sticky top-0 bg-[var(--white)] z-10">
+                <p className="text-xs font-medium text-[var(--primary)] opacity-60 py-1">
                   {date}
                 </p>
               </div>
