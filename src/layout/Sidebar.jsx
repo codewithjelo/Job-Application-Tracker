@@ -32,14 +32,14 @@ const Sidebar = ({ onCategoryClick }) => {
       <div
         className={`fixed top-0 left-0 h-full w-64 text-white transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 md:translate-x-0 md:w-64 z-40`}
+        } transition-transform duration-300 md:translate-x-0 md:w-64 z-40 border-r border-[var(--border)]`}
       >
         <div className="p-4">
-          <h2 className="text-4xl text-center text-gray-700 font-bold mb-4">
+          <h2 className="text-4xl text-center text-gray-700 font-bold border-b border-[var(--border)] pb-4">
             TrabaLog
           </h2>
           <nav>
-            <ul className="space-y-2">
+            <ul className="space-y-2 mt-4">
               <li>
                 <a
                   href="#"
