@@ -2,7 +2,7 @@ import ApplicationActivity from "../components/ApplicationActivity";
 
 const ActivityLog = () => {
     return(
-        <div>
+        <div className="h-full">
             <ApplicationActivity />
         </div>
     );
