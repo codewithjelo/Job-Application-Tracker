@@ -36,6 +36,30 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.overflow-y-auto::-webkit-scrollbar {
+  width: 8px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: var(--white);
+  border-radius: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: var(--blue-fade);
+  border-radius: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+
+/* Firefox */
+.overflow-y-auto {
+  scrollbar-width: thin;
+  scrollbar-color: var(--blue-fade) var(--white);
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
