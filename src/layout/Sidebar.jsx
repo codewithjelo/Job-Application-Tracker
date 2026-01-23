@@ -36,7 +36,7 @@ const Sidebar = ({ onCategoryClick }) => {
       >
         <div className="p-4">
           <h2 className="text-4xl text-center text-gray-700 font-bold mb-4">
-            J.A.T.
+            TrabaLog
           </h2>
           <nav>
             <ul className="space-y-2">
