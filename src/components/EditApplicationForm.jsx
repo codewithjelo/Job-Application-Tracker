@@ -1,4 +1,4 @@
-const ApplicationEditForm = ({ selectedApp, onChange, onSave }) => {
+const EditApplicationForm = ({ selectedApp, onChange, onSave }) => {
   if (!selectedApp) return null;
 
   return (
@@ -105,4 +105,4 @@ const ApplicationEditForm = ({ selectedApp, onChange, onSave }) => {
   );
 };
 
-export default ApplicationEditForm;
+export default EditApplicationForm;
