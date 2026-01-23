@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 export const useApplicationActivity = (applications) => {
   const [recentActivities, setRecentActivities] = useState([]);
+  const [recentActivities2, setRecentActivities2] = useState([]);
 
   useEffect(() => {
     if (!applications || applications.length === 0) {
@@ -21,8 +22,11 @@ export const useApplicationActivity = (applications) => {
 
     const sorted = allActivities
       .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    const sortedLimit = allActivities
+      .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)).slice(0, 5);
 
     setRecentActivities(sorted);
+    setRecentActivities2(sortedLimit)
   }, [applications]);
 
   const getTimeElapsed = (timestamp) => {
@@ -70,6 +74,7 @@ export const useApplicationActivity = (applications) => {
 
   return {
     recentActivities,
+    recentActivities2,
     getTimeElapsed,
     getActivityMessage,
     getStatusColor,

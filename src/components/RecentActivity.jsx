@@ -5,7 +5,7 @@ import { useApplicationActivity } from "../hooks/useApplicationActivity";
 const RecentActivity = ({ onCategoryClick }) => {
   const { applications } = useApplications();
   const {
-    recentActivities,
+    recentActivities2,
     getTimeElapsed,
     getActivityMessage,
     getStatusColor,
@@ -23,12 +23,12 @@ const RecentActivity = ({ onCategoryClick }) => {
         Recent Activity
       </p>
       <div className="space-y-4 overflow-y-auto h-7/10 mb-4">
-        {recentActivities.length === 0 ? (
+        {recentActivities2.length === 0 ? (
           <p className="text-sm text-gray-400 text-center py-4">
             No recent activity
           </p>
         ) : (
-          recentActivities.map((activity) => (
+          recentActivities2.map((activity) => (
             <div
               key={`${activity.appId}-${activity.id}`}
               className="activity flex items-start justify-between rounded-md border border-[var(--border)] p-3"
