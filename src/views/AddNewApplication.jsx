@@ -1,9 +1,9 @@
-import ApplicationAddForm from "../components/ApplicationAddForm";
+import AddApplicationForm from "../components/AddApplicationForm";
 
 const AddNewApplication = () => {
   return (
     <div>
-      <ApplicationAddForm />
+      <AddApplicationForm />
     </div>
   );
 };
