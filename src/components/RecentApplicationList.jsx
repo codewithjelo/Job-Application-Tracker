@@ -47,7 +47,7 @@ const RecentApplicationList = ({ onCategoryClick }) => {
           <tbody className="divide-y divide-gray-200">
             {filteredApplications.map((app) => (
               <RecentApplicationItem key={app.id} app={app} />
-            ))}
+            )).slice(0, 5)}
           </tbody>
         </table>
       </div>
