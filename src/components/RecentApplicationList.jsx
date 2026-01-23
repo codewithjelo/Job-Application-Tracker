@@ -18,10 +18,10 @@ const RecentApplicationList = ({ onCategoryClick }) => {
         <Table className="w-5 h-5" />
         Applications Over Time
       </p>
-      <div className="flex flex-col overflow-y-auto mb-4">
+      <div className="flex flex-col overflow-y-auto mb-4 overflow-auto max-h-100">
         {/*Table*/}
         <table className="w-full table-fixed border-collapse">
-          <thead className="bg-[var(--secondary)]">
+          <thead className="bg-[var(--secondary)] sticky top-0 z-10">
             <tr>
               <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
                 Company
@@ -47,7 +47,7 @@ const RecentApplicationList = ({ onCategoryClick }) => {
           <tbody className="divide-y divide-gray-200">
             {filteredApplications.map((app) => (
               <RecentApplicationItem key={app.id} app={app} />
-            )).slice(0, 5)}
+            )).slice(0, 10)}
           </tbody>
         </table>
       </div>
