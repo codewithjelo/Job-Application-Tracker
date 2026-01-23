@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 import ApplicationItem from "./ApplicationItem";
-import ApplicationEditForm from "./ApplicationEditForm";
+import EditApplicationForm from "./EditApplicationForm";
 import { useApplications } from "../hooks/useApplications";
 import { useApplicationFilters } from "../hooks/useApplicationFilters";
 
@@ -176,7 +176,7 @@ const ApplicationList = () => {
             </p>
           </div>
         ) : (
-          <ApplicationEditForm
+          <EditApplicationForm
             selectedApp={selectedApp}
             onChange={handleChange}
             onSave={handleSave}
