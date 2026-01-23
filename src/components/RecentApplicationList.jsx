@@ -16,11 +16,11 @@ const RecentApplicationList = ({ onCategoryClick }) => {
     <div className="rounded-md p-3 border border-[var(--border)]">
       <p className="text-md mb-4 text-[var(--primary)] font-semibold flex items-center gap-2">
         <Table className="w-5 h-5" />
-        Applications Over Time
+        Applications List
       </p>
       <div className="flex flex-col overflow-y-auto mb-4 overflow-auto max-h-100">
         {/*Table*/}
-        <table className="w-full table-fixed border-collapse">
+        <table className="w-200 lg:w-full table-fixed border-collapse">
           <thead className="bg-[var(--secondary)] sticky top-0 z-10">
             <tr>
               <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
@@ -52,7 +52,7 @@ const RecentApplicationList = ({ onCategoryClick }) => {
         </table>
       </div>
       <button
-        className="text-md mb-4 text-[var(--white)] font-semibold flex items-center justify-center gap-2 w-full"
+        className="text-sm mb-4 text-[var(--white)] font-semibold flex items-center justify-center gap-2 w-full"
         onClick={(e) => handleClick(e, "all-applications")}
       >
         <Form className="w-5 h-5" />

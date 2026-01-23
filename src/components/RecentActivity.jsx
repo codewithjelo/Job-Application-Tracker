@@ -58,16 +58,16 @@ const RecentActivity = ({ onCategoryClick }) => {
       <div className="flex flex-row gap-5">
         <div className="flex-1">
           <button
-            className="text-md mb-4 text-[var(--white)] font-semibold flex items-center justify-center gap-2 w-full"
+            className="text-sm mb-4 text-[var(--white)] font-semibold flex items-center justify-center gap-2 w-full"
             onClick={(e) => handleClick(e, "add-new")}
           >
             <Plus className="w-5 h-5" />
-            Add Application
+            Add
           </button>
         </div>
         <div className="flex-1">
           <button
-            className="text-md mb-4 text-[var(--white)] font-semibold flex items-center justify-center gap-2 w-full"
+            className="text-sm mb-4 text-[var(--white)] font-semibold flex items-center justify-center gap-2 w-full"
             onClick={(e) => handleClick(e, "activity-log")}
           >
             <List className="w-5 h-5" />

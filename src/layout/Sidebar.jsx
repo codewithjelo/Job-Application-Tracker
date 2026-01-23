@@ -23,7 +23,7 @@ const Sidebar = ({ onCategoryClick }) => {
       {/* Mobile Toggle Button */}
       <button
         onClick={toggleSidebar}
-        className="md:hidden fixed top-4 left-4 z-50 bg-blue-600 text-white p-2 rounded"
+        className="md:hidden fixed top-4 left-4 z-50 bg-[var(--secondary)] text-white p-2 rounded"
       >
         ☰
       </button>
@@ -89,7 +89,7 @@ const Sidebar = ({ onCategoryClick }) => {
       {isOpen && (
         <div
           onClick={toggleSidebar}
-          className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
+          className="fixed inset-0 bg-[var(--white)] bg-opacity-50 z-30 md:hidden"
         ></div>
       )}
     </>

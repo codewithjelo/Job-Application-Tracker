@@ -81,10 +81,10 @@ const ApplicationList = () => {
   };
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-col gap-4 xl:flex-row">
       <div className="flex flex-col overflow-y-auto min-w-2/4 2xl:min-w-3/4">
         {/*Filter Bar */}
-        <div className="flex flex-wrap gap-4 pb-5 sticky top-0 z-10">
+        <div className="grid grid-cols-2 xl:flex md:flex-wrap gap-4 pb-5 sticky top-0 z-10">
           <select
             className="rounded-md px-3 py-2 text-sm"
             value={statusFilter}
@@ -108,7 +108,7 @@ const ApplicationList = () => {
           </select>
 
           <select
-            className="rounded-md px-3 py-2 text-sm"
+            className="col-span-2 rounded-md px-3 py-2 text-sm"
             value={workFilter}
             onChange={(e) => setWorkFilter(e.target.value)}
           >
@@ -118,9 +118,9 @@ const ApplicationList = () => {
             <option value="Hybrid">Hybrid</option>
           </select>
         </div>
-        <div className="overflow-auto max-h-185">
+        <div className="overflow-auto border-b border-[var(--border)] max-h-120 md:max-h-185">
           {/*Table*/}
-          <table className="w-full table-fixed border-collapse">
+          <table className="w-200 xl:w-full table-fixed border-collapse">
             <thead className="bg-[var(--secondary)] sticky top-0 z-10">
               <tr>
                 <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
@@ -165,7 +165,7 @@ const ApplicationList = () => {
       </div>
 
       {/*Edit Panel*/}
-      <div className="ml-5 px-4 py-3 min-w-80 border border-gray-200 flex flex-col max-h-152">
+      <div className="xl:ml-5 px-4 py-3 min-w-80 border border-gray-200 flex flex-col max-h-152">
         <p className="text-left text-sm font-semibold text-gray-700">
           Modify Application
         </p>

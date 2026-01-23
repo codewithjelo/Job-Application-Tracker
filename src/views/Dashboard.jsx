@@ -7,7 +7,7 @@ const Dashboard = ({ onCategoryClick }) => {
   return (
     <div className="flex flex-col gap-5">
       <DashboardCard />
-      <div className="flex flex-row gap-5">
+      <div className="flex flex-col lg:flex-row gap-5">
         <div className="flex-1">
           <ApplicationTrend />
         </div>
