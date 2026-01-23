@@ -84,7 +84,7 @@ const ApplicationList = () => {
     <div className="flex flex-row">
       <div className="flex flex-col overflow-y-auto min-w-2/4 2xl:min-w-3/4">
         {/*Filter Bar */}
-        <div className="flex flex-wrap gap-4 pb-5">
+        <div className="flex flex-wrap gap-4 pb-5 sticky top-0 z-10">
           <select
             className="rounded-md px-3 py-2 text-sm"
             value={statusFilter}
@@ -118,53 +118,54 @@ const ApplicationList = () => {
             <option value="Hybrid">Hybrid</option>
           </select>
         </div>
+        <div className="overflow-auto max-h-185">
+          {/*Table*/}
+          <table className="w-full table-fixed border-collapse">
+            <thead className="bg-[var(--secondary)] sticky top-0 z-10">
+              <tr>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
+                  Company
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
+                  Position
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
+                  Status
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
+                  Date
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
+                  Location
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
+                  Work Arrangement
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
+                  Type
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
+                  Notes
+                </th>
+              </tr>
+            </thead>
 
-        {/*Table*/}
-        <table className="w-full table-fixed border-collapse">
-          <thead className="bg-[var(--secondary)]">
-            <tr>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
-                Company
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
-                Position
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
-                Status
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
-                Date
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
-                Location
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
-                Work Arrangement
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
-                Type
-              </th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-[var(--white)]">
-                Notes
-              </th>
-            </tr>
-          </thead>
-
-          <tbody className="divide-y divide-gray-200">
-            {filteredApplications.map((app) => (
-              <ApplicationItem
-                key={app.id}
-                app={app}
-                isSelected={selectedApp?.id === app.id}
-                onSelect={setSelectedApp}
-              />
-            ))}
-          </tbody>
-        </table>
+            <tbody className="divide-y divide-gray-200">
+              {filteredApplications.map((app) => (
+                <ApplicationItem
+                  key={app.id}
+                  app={app}
+                  isSelected={selectedApp?.id === app.id}
+                  onSelect={setSelectedApp}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {/*Edit Panel*/}
-      <div className="ml-5 px-4 py-3 min-w-80 border border-gray-200 flex flex-col">
+      <div className="ml-5 px-4 py-3 min-w-80 border border-gray-200 flex flex-col max-h-152">
         <p className="text-left text-sm font-semibold text-gray-700">
           Modify Application
         </p>
