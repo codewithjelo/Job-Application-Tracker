@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export const useApplications = () => {
   const [applications, setApplications] = useState([]);
-  const API_URL = "../../api/applications";
+  const API_URL = "/api/applications";
 
 
   useEffect(() => {
