@@ -1,31 +1,35 @@
-import applications from "../data/applications.js";
+import applications from '../data/applications.js';
 
 export default function handler(req, res) {
-  const { id } = req.query;
-  const appId = parseInt(id);
+  // Enable CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  const index = applications.findIndex((a) => a.id === appId);
-
-  if (index === -1) {
-    return res.status(404).json({ message: "Application not found" });
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
   }
 
-  if (req.method === "GET") {
-    return res.status(200).json(applications[index]);
+  if (req.method === 'GET') {
+    return res.status(200).json(applications);
   }
 
-  if (req.method === "PUT") {
-    applications[index] = {
-      ...applications[index],
+  if (req.method === 'POST') {
+    const newApp = {
       ...req.body,
+      id: Math.max(...applications.map(a => a.id)) + 1,
+      activities: [
+        {
+          id: 1,
+          type: 'created',
+          timestamp: new Date().toISOString(),
+          note: 'Application submitted',
+        },
+      ],
     };
-    return res.status(200).json(applications[index]);
+    applications.push(newApp);
+    return res.status(201).json(newApp);
   }
 
-  if (req.method === "DELETE") {
-    const deleted = applications.splice(index, 1);
-    return res.status(200).json(deleted[0]);
-  }
-
-  return res.status(405).json({ message: "Method not allowed" });
+  return res.status(405).json({ message: 'Method not allowed' });
 }
