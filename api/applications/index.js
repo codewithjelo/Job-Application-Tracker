@@ -1,4 +1,4 @@
-import applications from "../../src/data/applications";
+import applications from "../data/applications";
 
 export default function handler(req, res) {
   if (req.method === "GET") {

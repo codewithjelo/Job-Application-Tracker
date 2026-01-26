@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import applications from "./src/data/applications.js"
+import applications from "./api/data/applications.js"
 
 const app = express();
 const PORT = 5000;
