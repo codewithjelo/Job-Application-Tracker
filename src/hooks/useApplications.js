@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 export const useApplications = () => {
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(true);
-  const API_URL = "api/applications";
+  const API_URL = "/api/applications";
 
   useEffect(() => {
     const fetchApplications = async () => {
