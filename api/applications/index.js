@@ -1,28 +1,29 @@
-const applications = require('../data/applications');
+const applications = require("../data/applications");
 
 module.exports = function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.status(200).json({ message: "Hello from API" });
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  if (req.method === 'OPTIONS') {
+  if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
 
-  if (req.method === 'GET') {
+  if (req.method === "GET") {
     return res.status(200).json(applications);
   }
 
-  if (req.method === 'POST') {
+  if (req.method === "POST") {
     const newApp = {
       ...req.body,
-      id: Math.max(...applications.map(a => a.id)) + 1,
+      id: Math.max(...applications.map((a) => a.id)) + 1,
       activities: [
         {
           id: 1,
-          type: 'created',
+          type: "created",
           timestamp: new Date().toISOString(),
-          note: 'Application submitted',
+          note: "Application submitted",
         },
       ],
     };
@@ -30,5 +31,5 @@ module.exports = function handler(req, res) {
     return res.status(201).json(newApp);
   }
 
-  return res.status(405).json({ message: 'Method not allowed' });
+  return res.status(405).json({ message: "Method not allowed" });
 };
