@@ -1,4 +1,4 @@
-export const applications = [
+const applications = [
   {
     id: 1,
     company: "Google",
@@ -1064,3 +1064,6 @@ export const applications = [
     ],
   },
 ];
+
+
+export default applications;
