@@ -1,4 +1,4 @@
-import applications from "../data/applications";
+const applications = require("../data/applications");
 
 export default function handler(req, res) {
   if (req.method === "GET") {
