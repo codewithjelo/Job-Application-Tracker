@@ -1,6 +1,6 @@
-import applications from '../data/applications.js';
+const applications = require('../data/applications');
 
-export default function handler(req, res) {
+module.exports = function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -35,4 +35,4 @@ export default function handler(req, res) {
   }
 
   return res.status(405).json({ message: 'Method not allowed' });
-}
+};

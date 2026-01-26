@@ -1065,4 +1065,4 @@ const applications = [
   },
 ];
 
-export default applications;
+module.exports = applications;
